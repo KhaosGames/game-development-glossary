@@ -1,0 +1,16 @@
+{
+  "name": "game-development-glossary",
+  "version": "1.0.0",
+  "author": "Storm Søndergaard",
+  "scripts": {
+    "dev": "npx serve .",
+    "format": "npx prettier --write .",
+    "build": "npm run format && npx html-minifier --collapse-whitespace --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --remove-comments --minify-css true --minify-js true -o dist/index.min.html index.html",
+    "start": "docker build -t gdg . && docker run --rm -p 8080:80 gdg"
+  },
+  "devDependencies": {
+    "html-minifier": "^4.0.0",
+    "prettier": "^3.7.1",
+    "serve": "^14.2.0"
+  }
+}
