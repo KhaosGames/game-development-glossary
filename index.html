@@ -160,101 +160,21 @@
             margin-top: 0.7em;
         }
 
-        .terms-list>li {
-            display: flex;
-            flex-direction: row;
-            position: relative;
-            border: var(--border-width) solid #3E4146;
-            padding: 1em 0;
+        term-item {
+            display: block;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease-out forwards;
         }
 
-        .terms-list>li>.content {
-            flex-grow: 1;
-            padding: 0 1.5em;
-        }
-
-        .terms-list>li>.content>h2 {
-            font-size: 2rem;
-            color: #c2c2c2;
-        }
-
-        .terms-list>li>.content>h2::before {
-            content: "[";
-            padding-right: 0.2em;
-        }
-
-        .terms-list>li>.content>h2::after {
-            content: "]";
-            padding-left: 0.2em;
-        }
-
-        .terms-list>li>.content>.tags {
-            list-style: none;
-            display: flex;
-        }
-
-        .terms-list>li>.content>.tags li {
-            color: #c2c2c2;
-        }
-
-        .terms-list>li>.content>.tags li::after {
-            content: "\00b7";
-            padding: 0 0.5em;
-            font-weight: bold;
-        }
-
-        .terms-list>li>.content>.tags li:last-child::after {
-            content: "";
-        }
-
-        .terms-list>li>.content>p {
-            padding: 1em 0;
-            color: #7A7D84;
-        }
-
-        .terms-list>li[data-totd="true"]::after {
-            content: "term of the day";
-            position: absolute;
-            top: 0;
-            /* offset to move outside the box */
-            right: -48px;
-            /* FULL height of the li */
-            height: calc(100% + 2 * var(--border-width));
-            /* ribbon thickness */
-            width: 48px;
-            background: var(--c-prim);
-            color: var(--c-text-dark);
-            /* center rotated text */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* adjust for border */
-            transform: translateY(calc(-1 * var(--border-width)));
-
-            /* Rotate ONLY the text, not the entire ribbon height */
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-        }
-
-        .votes {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8em;
-            padding: 0 1.5em;
-            color: #c2c2c2;
-        }
-
-        .votes button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #c2c2c2;
-        }
-
-        .votes button:hover {
-            color: #ffffff;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .suggest-term {
@@ -265,6 +185,166 @@
             text-align: center;
             border: none;
             width: max-content;
+            cursor: pointer;
+        }
+
+        .suggest-term:hover {
+            opacity: 0.9;
+        }
+
+        dialog {
+            background-color: hsl(228, 12%, 12%);
+            border: var(--border-width) solid #3E4146;
+            color: #c2c2c2;
+            padding: 0;
+            max-width: 600px;
+            width: 90%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
+
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        dialog header {
+            background-color: var(--c-prim);
+            color: var(--c-text-dark);
+            padding: 0.8em 1.2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        dialog header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        dialog header button {
+            background: none;
+            border: none;
+            color: var(--c-text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        dialog form {
+            padding: 1.5em;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2em;
+        }
+
+        dialog .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4em;
+        }
+
+        dialog label {
+            color: #c2c2c2;
+            font-size: 0.9rem;
+        }
+
+        dialog input,
+        dialog textarea {
+            background-color: hsl(228, 12%, 8%);
+            border: var(--border-width) solid #3E4146;
+            color: #c2c2c2;
+            padding: 0.6em;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        dialog input:focus,
+        dialog textarea:focus {
+            outline: none;
+            border-color: var(--c-prim);
+        }
+
+        dialog textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        dialog .form-actions {
+            display: flex;
+            gap: 0.8em;
+            justify-content: flex-end;
+            margin-top: 0.5em;
+        }
+
+        dialog button[type="submit"] {
+            background-color: var(--c-prim);
+            color: var(--c-text-dark);
+            border: none;
+            padding: 0.6em 1.5em;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        dialog button[type="button"] {
+            background-color: transparent;
+            color: #7A7D84;
+            border: var(--border-width) solid #3E4146;
+            padding: 0.6em 1.5em;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        dialog button:hover {
+            opacity: 0.9;
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3em;
+            color: #7A7D84;
+            gap: 0.5em;
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: 0.3em;
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--c-prim);
+            animation: loading-bounce 1.4s infinite ease-in-out both;
+        }
+
+        .loading-dots span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes loading-bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -348,51 +428,47 @@
         <!-- Terms List -->
         <hr />
         <ul class="terms-list">
-            <li data-totd="true">
-                <div class="content">
-                    <h2>affordance</h2>
-                    <ul class="tags">
-                        <li>noun</li>
-                        <li>psychology</li>
-                    </ul>
-                    <p>The properties of an object that suggest how it can be used, acting as a clue for interaction.
-                    </p>
+            <div class="loading">
+                <span>Loading terms</span>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="votes">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-arrow-up-icon lucide-arrow-up">
-                            <path d="m5 12 7-7 7 7" />
-                            <path d="M12 19V5" />
-                        </svg>
-                    </button>
-                    <div>24</div>
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-arrow-down-icon lucide-arrow-down">
-                            <path d="M12 5v14" />
-                            <path d="m19 12-7 7-7-7" />
-                        </svg>
-                    </button>
-                </div>
-            </li>
-            <li>
-                <div class="content">
-                    <h2>aggregation</h2>
-                    <ul class="tags">
-                        <li>noun</li>
-                        <li>programming</li>
-                    </ul>
-                    <p>A design principle where objects are composed of other objects, allowing for complex structures
-                        through simpler components.</p>
-                </div>
-            </li>
+            </div>
         </ul>
         <div style="display: flex; justify-content: center; margin-top: 2em;">
-            <button class="suggest-term"> + Suggest a Term</button>
+            <button class="suggest-term" id="suggestTermBtn"> + Suggest a Term</button>
         </div>
+
+        <dialog id="suggestDialog">
+            <header>
+                <h2>Suggest a Term</h2>
+                <button type="button" id="closeDialog" aria-label="Close">×</button>
+            </header>
+            <form id="suggestForm">
+                <div class="form-group">
+                    <label for="termName">Term *</label>
+                    <input type="text" id="termName" name="term" required placeholder="e.g., affordance">
+                </div>
+                <div class="form-group">
+                    <label for="termDefinition">Definition *</label>
+                    <textarea id="termDefinition" name="definition" required placeholder="Describe what this term means..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="termTags">Tags</label>
+                    <input type="text" id="termTags" name="tags" placeholder="e.g., noun, psychology (comma-separated)">
+                </div>
+                <!--<div class="form-group">
+                    <label for="submitterName">Your Name (optional)</label>
+                    <input type="text" id="submitterName" name="submitter" placeholder="Anonymous">
+                </div>-->
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn">Cancel</button>
+                    <button type="submit">Submit Suggestion</button>
+                </div>
+            </form>
+        </dialog>
 
         <div style="flex-grow: 1;"></div>
 
@@ -401,6 +477,328 @@
             <p style="max-width: 100%; padding: 1em 0; color: #6A6A6A;">© 2024 Khaos Games ApS. All rights reserved.</p>
         </footer>
     </main>
+
+    <script>
+        // Web Component for Term
+        class TermItem extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            static get observedAttributes() {
+                return ['term', 'definition', 'tags', 'votes', 'totd'];
+            }
+
+            connectedCallback() {
+                this.render();
+            }
+
+            attributeChangedCallback() {
+                this.render();
+            }
+
+            render() {
+                const term = this.getAttribute('term') || '';
+                const definition = this.getAttribute('definition') || '';
+                const tags = this.getAttribute('tags') || '';
+                const votes = this.getAttribute('votes') || '0';
+                const totd = this.getAttribute('totd') === 'true';
+
+                const tagArray = tags.split(',').filter(t => t.trim());
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                            position: relative;
+                        }
+
+                        .term-wrapper {
+                            display: flex;
+                            flex-direction: row;
+                            position: relative;
+                            border: var(--border-width, 2px) solid #3E4146;
+                            padding: 1em 0;
+                        }
+
+                        :host([totd="true"]) .term-wrapper::after {
+                            content: "term of the day";
+                            position: absolute;
+                            top: 0;
+                            right: -48px;
+                            height: calc(100% + 2 * var(--border-width, 2px));
+                            width: 48px;
+                            background: var(--c-prim, #C44848);
+                            color: var(--c-text-dark, #14151A);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transform: translateY(calc(-1 * var(--border-width, 2px)));
+                            writing-mode: vertical-rl;
+                            text-orientation: mixed;
+                        }
+
+                        .content {
+                            flex-grow: 1;
+                            padding: 0 1.5em;
+                        }
+
+                        .content > h2 {
+                            font-size: 2rem;
+                            color: #c2c2c2;
+                            font-weight: 400;
+                            margin: 0;
+                        }
+
+                        .content > h2::before {
+                            content: "[";
+                            padding-right: 0.2em;
+                        }
+
+                        .content > h2::after {
+                            content: "]";
+                            padding-left: 0.2em;
+                        }
+
+                        .tags {
+                            list-style: none;
+                            display: flex;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .tags li {
+                            color: #c2c2c2;
+                        }
+
+                        .tags li::after {
+                            content: "\\00b7";
+                            padding: 0 0.5em;
+                            font-weight: bold;
+                        }
+
+                        .tags li:last-child::after {
+                            content: "";
+                        }
+
+                        .content > p {
+                            padding: 1em 0;
+                            color: #7A7D84;
+                            max-width: 60ch;
+                            margin: 0;
+                        }
+
+                        .votes {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 0.8em;
+                            padding: 0 1.5em;
+                            color: #c2c2c2;
+                        }
+
+                        .votes button {
+                            background: none;
+                            border: none;
+                            cursor: pointer;
+                            color: #c2c2c2;
+                            padding: 0;
+                        }
+
+                        .votes button:hover {
+                            color: #ffffff;
+                        }
+                    </style>
+                    <div class="term-wrapper">
+                        <div class="content">
+                            <h2>${term}</h2>
+                            <ul class="tags">
+                                ${tagArray.map(tag => `<li>${tag.trim()}</li>`).join('')}
+                            </ul>
+                            <p>${definition}</p>
+                        </div>
+                        ${votes !== null ? `
+                        <div class="votes">
+                            <button class="vote-up">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m5 12 7-7 7 7" />
+                                    <path d="M12 19V5" />
+                                </svg>
+                            </button>
+                            <div>${votes}</div>
+                            <button class="vote-down">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14" />
+                                    <path d="m19 12-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
+
+                // Add event listeners for voting
+                if (votes !== null) {
+                    const upBtn = this.shadowRoot.querySelector('.vote-up');
+                    const downBtn = this.shadowRoot.querySelector('.vote-down');
+
+                    upBtn?.addEventListener('click', () => {
+                        this.dispatchEvent(new CustomEvent('vote', { detail: { direction: 'up' } }));
+                    });
+
+                    downBtn?.addEventListener('click', () => {
+                        this.dispatchEvent(new CustomEvent('vote', { detail: { direction: 'down' } }));
+                    });
+                }
+            }
+        }
+
+        customElements.define('term-item', TermItem);
+
+        // Supabase Configuration
+        const SUPABASE_URL = 'https://uahckisfpkeulrwbuyms.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_otX6Z4ozo93AdIhablKqlA_Ah-Ou5CM';
+
+        // Fetch terms from Supabase
+        async function fetchTerms() {
+            try {
+                // Try different possible table names
+                const tableName = "terms";
+
+                try {
+                    const response = await fetch(`${SUPABASE_URL}/rest/v1/terms?select=*`, {
+                        headers: {
+                            'apikey': SUPABASE_KEY,
+                            'Authorization': `Bearer ${SUPABASE_KEY}`,
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'Prefer': 'return=representation'
+                        }
+                    });
+
+                    if (response.ok) {
+                        const terms = await response.json();
+                        console.log(`Successfully fetched ${terms.length} terms from table: ${tableName}`);
+                        renderTerms(terms);
+                        return;
+                    }
+                } catch (err) {
+                    console.log(`Table '${tableName}' not found, trying next...`);
+                }
+
+                // If no table worked, show error and use fallback data
+                throw new Error('Could not find terms table in Supabase');
+            } catch (error) {
+                console.error('Error fetching terms:', error);
+                console.log('Using fallback data...');
+            }
+        }
+
+        // Render terms in the list
+        function renderTerms(terms) {
+            const termsList = document.querySelector('.terms-list');
+            termsList.innerHTML = '';
+
+            if (terms.length === 0) {
+                termsList.innerHTML = '<div class="loading"><span>No terms found</span></div>';
+                return;
+            }
+
+            terms.forEach((term, index) => {
+                const termItem = document.createElement('term-item');
+                termItem.style.animationDelay = `${index * 0.05}s`;
+                termItem.setAttribute('term', term.term);
+                termItem.setAttribute('definition', term.description);
+                termItem.setAttribute('tags', term.tags ? term.tags.join(',') : '');
+                termItem.setAttribute('votes', term.votes || 0);
+                if (term.totd) {
+                    termItem.setAttribute('totd', 'true');
+                }
+
+                // Handle voting
+                termItem.addEventListener('vote', (e) => {
+                    console.log(`Vote ${e.detail.direction} for term: ${term.term}`);
+                    // Add actual voting logic here
+                });
+
+                termsList.appendChild(termItem);
+            });
+        }
+
+        // Load terms on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchTerms();
+
+            // Dialog functionality
+            const dialog = document.getElementById('suggestDialog');
+            const suggestBtn = document.getElementById('suggestTermBtn');
+            const closeBtn = document.getElementById('closeDialog');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const form = document.getElementById('suggestForm');
+
+            // Open dialog
+            suggestBtn.addEventListener('click', () => {
+                dialog.showModal();
+            });
+
+            // Close dialog
+            closeBtn.addEventListener('click', () => {
+                dialog.close();
+            });
+
+            cancelBtn.addEventListener('click', () => {
+                dialog.close();
+            });
+
+            // Close on backdrop click
+            dialog.addEventListener('click', (e) => {
+                if (e.target === dialog) {
+                    dialog.close();
+                }
+            });
+
+            // Handle form submission
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const termData = {
+                    term: formData.get('term'),
+                    description: formData.get('definition'),
+                    tags: formData.get('tags') ? formData.get('tags').split(',').map(t => t.trim()) : [],
+                };
+
+                try {
+                    const response = await fetch(`${SUPABASE_URL}/rest/v1/terms`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_KEY,
+                            'Authorization': `Bearer ${SUPABASE_KEY}`,
+                            'Content-Type': 'application/json',
+                            'Prefer': 'return=representation'
+                        },
+                        body: JSON.stringify(termData)
+                    });
+
+                    if (response.ok) {
+                        alert('Term suggestion submitted successfully! It will be reviewed before being added.');
+                        form.reset();
+                        dialog.close();
+                        fetchTerms(); // Refresh the list
+                    } else {
+                        throw new Error('Failed to submit term');
+                    }
+                } catch (error) {
+                    console.error('Error submitting term:', error);
+                    alert('Failed to submit term suggestion. Please try again later.');
+                }
+            });
+        });
+    </script>
 
 </body>
 
