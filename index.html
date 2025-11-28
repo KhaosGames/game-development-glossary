@@ -4,20 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A comprehensive community-driven glossary of game development terms and concepts." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Game Development Glossary</title>
     <style>
-      /**
-         * font: https://fonts.google.com/specimen/Poppins
-         * subset: https://everythingfonts.com/subsetter, basic latin
-         * and css by : hellogreg.github.io/woff2base/
-         */
-      @font-face {
-        font-family: "Poppins";
-        /* Add other properties here, as needed. For example: */
-        /* font-weight: 100 900; font-style: normal italic; */
-        src: url(data:application/octet-stream;base64,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AAMABAAAAAEAAAAAAAEAAQAAAAEABQAGAA4AFgBMAFoAYgBqAAYAAAABAGQABgAAABgAeACOAKQAugDQAOYA/AESASgBPgFUAWoBgAGWAawBwgHYAe4CBAIaAjACRgJcAnIABgAAAAQCUgJoAn4ClAAGAAAAAQKcAAYAAAABAq4ABgAAAAECwgADAAAAAgAQABQAAQAYAAAAAQAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAABAA4AAQASAAAAAQAAAAEAAAADAAAAAQAOAAEAEgAAAAEAAAABAAAAAwAAAAEADgABABIAAAABAAAAAQAAAAMAAAACABIAFgAAAAEAAAACAAEAAAABAAAAAwACABQAGAABABAAAAAAAAEAAAABAAAAAQAAAAMAAQASAAEADgAAAAAAAQAAAAEAAAABAAAACgA8AD4AA0RGTFQAFGRldjIAHmRldmEAKAAEAAAAAP//AAAABAAAAAD//wAAAAQAAAAA//8AAAAAAAAAAAABAAAAANoy8IQAAAAA2KSpvgAAAADlTm2v);
-      }
-
       :root {
         --c-bg: #14151a;
         --c-text-dark: #14151a;
@@ -126,6 +117,22 @@
         color: #a7a7a796;
       }
 
+      .search input::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 18px;
+        width: 18px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236a6a6a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+        background-size: 18px 18px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        opacity: 0.6;
+      }
+
+      .search input::-webkit-search-cancel-button:hover {
+        opacity: 1;
+      }
+
       .search kbd {
         border: var(--border-width) solid #3e4146;
         background-color: var(--c-bg);
@@ -146,6 +153,27 @@
       .filter-and-sort a {
         text-decoration: none;
         color: #3e4146;
+        transition: color 0.2s ease;
+        cursor: pointer;
+      }
+
+      .filter-and-sort a:hover {
+        color: var(--c-prim);
+      }
+
+      .filter-and-sort svg {
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .filter-and-sort svg:hover path,
+      .filter-and-sort svg:hover rect {
+        stroke: var(--c-prim);
+      }
+
+      .filter-and-sort svg.active path,
+      .filter-and-sort svg.active rect {
+        stroke: var(--c-prim);
       }
 
       .filter-and-sort hr {
@@ -156,14 +184,115 @@
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 0.7em;
-        margin-top: 0.7em;
+        position: relative;
       }
 
-      term-item {
-        display: block;
+      .term-item {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        border: var(--border-width) solid #3e4146;
+        padding: 1em 0;
+        margin-top: 0.7em;
         opacity: 0;
         animation: fadeInUp 0.5s ease-out forwards;
+      }
+
+      .term-item[data-totd="true"]::after {
+        content: "term of the day";
+        position: absolute;
+        top: 0;
+        right: -48px;
+        height: calc(100% + 2 * var(--border-width));
+        width: 48px;
+        background: var(--c-prim);
+        color: var(--c-text-dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(calc(-1 * var(--border-width)));
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+
+      .term-item .content {
+        flex-grow: 1;
+        padding: 0 1.5em;
+      }
+
+      .term-item .content > h2 {
+        font-size: 2rem;
+        color: #c2c2c2;
+        margin: 0;
+        text-transform: lowercase;
+      }
+
+      .term-item .content > h2::before {
+        content: "[";
+        padding-right: 0.2em;
+      }
+
+      .term-item .content > h2::after {
+        content: "]";
+        padding-left: 0.2em;
+      }
+
+      .term-item .tags {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+
+      .term-item .tags li {
+        color: #c2c2c2;
+      }
+
+      .term-item .tags li::after {
+        content: "\00b7";
+        padding: 0 0.5em;
+        font-weight: bold;
+      }
+
+      .term-item .tags li:last-child::after {
+        content: "";
+      }
+
+      .term-item .content > p {
+        padding: 1em 0;
+        color: #7a7d84;
+        max-width: 60ch;
+        margin: 0;
+      }
+
+      .term-item .votes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8em;
+        padding: 0 1.5em;
+        color: #c2c2c2;
+      }
+
+      .term-item .votes button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #c2c2c2;
+        padding: 0;
+      }
+
+      .term-item .votes button:hover {
+        color: #ffffff;
+      }
+
+      .term-item .letter {
+        display: none;
+      }
+
+      .term-item.show-letter .letter {
+        display: block;
       }
 
       @keyframes fadeInUp {
@@ -401,96 +530,37 @@
           <kbd>Ctrl + F</kbd>
         </div>
         <div class="filter-and-sort">
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2 10.6667L4.66667 13.3333L7.33333 10.6667"
-              stroke="#3E4146"
-              style="
-                stroke: #3e4146;
-                stroke: color(display-p3 0.2431 0.2549 0.2745);
-                stroke-opacity: 1;
-              "
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M4.6665 13.3333V2.66667"
-              stroke="#3E4146"
-              style="
-                stroke: #3e4146;
-                stroke: color(display-p3 0.2431 0.2549 0.2745);
-                stroke-opacity: 1;
-              "
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M13.3333 5.33333H10"
-              stroke="#3E4146"
-              style="
-                stroke: #3e4146;
-                stroke: color(display-p3 0.2431 0.2549 0.2745);
-                stroke-opacity: 1;
-              "
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10 6.66667V4.33334C10 3.89131 10.1756 3.46739 10.4882 3.15483C10.8007 2.84227 11.2246 2.66667 11.6667 2.66667C12.1087 2.66667 12.5326 2.84227 12.8452 3.15483C13.1577 3.46739 13.3333 3.89131 13.3333 4.33334V6.66667"
-              stroke="#3E4146"
-              style="
-                stroke: #3e4146;
-                stroke: color(display-p3 0.2431 0.2549 0.2745);
-                stroke-opacity: 1;
-              "
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10 9.33333H13.3333L10 13.3333H13.3333"
-              stroke="#3E4146"
-              style="
-                stroke: #3e4146;
-                stroke: color(display-p3 0.2431 0.2549 0.2745);
-                stroke-opacity: 1;
-              "
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+   
+          <svg xmlns="http://www.w3.org/2000/svg" class="sort-az-btn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-az-icon lucide-arrow-down-a-z"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M20 8h-5"/><path d="M15 10V6.5a2.5 2.5 0 0 1 5 0V10"/><path d="M15 14h5l-5 6h5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="sort-votes-btn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down10-icon lucide-arrow-down-1-0"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M17 10V4h-2"/><path d="M15 10h4"/><rect x="15" y="14" width="4" height="6" ry="2"/></svg>
+         
           <hr />
-          <a href="#A">A</a>
-          <a href="#B">B</a>
-          <a href="#C">C</a>
-          <a href="#D">D</a>
-          <a href="#E">E</a>
-          <a href="#F">F</a>
-          <a href="#G">G</a>
-          <a href="#H">H</a>
-          <a href="#I">I</a>
-          <a href="#J">J</a>
-          <a href="#K">K</a>
-          <a href="#L">L</a>
-          <a href="#M">M</a>
-          <a href="#N">N</a>
-          <a href="#O">O</a>
-          <a href="#P">P</a>
-          <a href="#Q">Q</a>
-          <a href="#R">R</a>
-          <a href="#S">S</a>
-          <a href="#T">T</a>
-          <a href="#U">U</a>
-          <a href="#V">V</a>
-          <a href="#W">W</a>
-          <a href="#X">X</a>
-          <a href="#Y">Y</a>
-          <a href="#Z">Z</a>
+          <a href="#A" class="letter-nav">A</a>
+          <a href="#B" class="letter-nav">B</a>
+          <a href="#C" class="letter-nav">C</a>
+          <a href="#D" class="letter-nav">D</a>
+          <a href="#E" class="letter-nav">E</a>
+          <a href="#F" class="letter-nav">F</a>
+          <a href="#G" class="letter-nav">G</a>
+          <a href="#H" class="letter-nav">H</a>
+          <a href="#I" class="letter-nav">I</a>
+          <a href="#J" class="letter-nav">J</a>
+          <a href="#K" class="letter-nav">K</a>
+          <a href="#L" class="letter-nav">L</a>
+          <a href="#M" class="letter-nav">M</a>
+          <a href="#N" class="letter-nav">N</a>
+          <a href="#O" class="letter-nav">O</a>
+          <a href="#P" class="letter-nav">P</a>
+          <a href="#Q" class="letter-nav">Q</a>
+          <a href="#R" class="letter-nav">R</a>
+          <a href="#S" class="letter-nav">S</a>
+          <a href="#T" class="letter-nav">T</a>
+          <a href="#U" class="letter-nav">U</a>
+          <a href="#V" class="letter-nav">V</a>
+          <a href="#W" class="letter-nav">W</a>
+          <a href="#X" class="letter-nav">X</a>
+          <a href="#Y" class="letter-nav">Y</a>
+          <a href="#Z" class="letter-nav">Z</a>
         </div>
       </div>
 
@@ -506,6 +576,37 @@
           </div>
         </div>
       </ul>
+
+      <template id="term-template">
+        <li class="term-item">
+          <h2 class="letter" style="position: absolute; font-size: 4rem; font-weight: 200; line-height: 110%; left: -2ch; top: 0px; color: var(--c-prim);">
+            A
+          </h2>
+          <div class="content">
+            <h2 class="term-name"></h2>
+            <ul class="tags"></ul>
+            <p class="term-definition"></p>
+          </div>
+          <div class="votes">
+            <button class="vote-up" aria-label="Vote up">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m5 12 7-7 7 7" />
+                <path d="M12 19V5" />
+              </svg>
+            </button>
+            <div class="vote-count">0</div>
+            <button class="vote-down" aria-label="Vote down">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 5v14" />
+                <path d="m19 12-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+        </li>
+      </template>
+
       <div style="display: flex; justify-content: center; margin-top: 2em">
         <button class="suggest-term" id="suggestTermBtn">
           + Suggest a Term
@@ -568,197 +669,12 @@
     </main>
 
     <script>
-      // Web Component for Term
-      class TermItem extends HTMLElement {
-        constructor() {
-          super();
-          this.attachShadow({ mode: "open" });
-        }
-
-        static get observedAttributes() {
-          return ["term", "definition", "tags", "votes", "totd"];
-        }
-
-        connectedCallback() {
-          this.render();
-        }
-
-        attributeChangedCallback() {
-          this.render();
-        }
-
-        render() {
-          const term = this.getAttribute("term") || "";
-          const definition = this.getAttribute("definition") || "";
-          const tags = this.getAttribute("tags") || "";
-          const votes = this.getAttribute("votes") || "0";
-          const totd = this.getAttribute("totd") === "true";
-
-          const tagArray = tags.split(",").filter((t) => t.trim());
-
-          this.shadowRoot.innerHTML = `
-                    <style>
-                        :host {
-                            display: block;
-                            position: relative;
-                        }
-
-                        .term-wrapper {
-                            display: flex;
-                            flex-direction: row;
-                            position: relative;
-                            border: var(--border-width, 2px) solid #3E4146;
-                            padding: 1em 0;
-                        }
-
-                        :host([totd="true"]) .term-wrapper::after {
-                            content: "term of the day";
-                            position: absolute;
-                            top: 0;
-                            right: -48px;
-                            height: calc(100% + 2 * var(--border-width, 2px));
-                            width: 48px;
-                            background: var(--c-prim, #C44848);
-                            color: var(--c-text-dark, #14151A);
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            transform: translateY(calc(-1 * var(--border-width, 2px)));
-                            writing-mode: vertical-rl;
-                            text-orientation: mixed;
-                        }
-
-                        .content {
-                            flex-grow: 1;
-                            padding: 0 1.5em;
-                        }
-
-                        .content > h2 {
-                            font-size: 2rem;
-                            color: #c2c2c2;
-                            font-weight: 400;
-                            margin: 0;
-                        }
-
-                        .content > h2::before {
-                            content: "[";
-                            padding-right: 0.2em;
-                        }
-
-                        .content > h2::after {
-                            content: "]";
-                            padding-left: 0.2em;
-                        }
-
-                        .tags {
-                            list-style: none;
-                            display: flex;
-                            margin: 0;
-                            padding: 0;
-                        }
-
-                        .tags li {
-                            color: #c2c2c2;
-                        }
-
-                        .tags li::after {
-                            content: "\\00b7";
-                            padding: 0 0.5em;
-                            font-weight: bold;
-                        }
-
-                        .tags li:last-child::after {
-                            content: "";
-                        }
-
-                        .content > p {
-                            padding: 1em 0;
-                            color: #7A7D84;
-                            max-width: 60ch;
-                            margin: 0;
-                        }
-
-                        .votes {
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: center;
-                            gap: 0.8em;
-                            padding: 0 1.5em;
-                            color: #c2c2c2;
-                        }
-
-                        .votes button {
-                            background: none;
-                            border: none;
-                            cursor: pointer;
-                            color: #c2c2c2;
-                            padding: 0;
-                        }
-
-                        .votes button:hover {
-                            color: #ffffff;
-                        }
-                    </style>
-                    <div class="term-wrapper">
-                        <div class="content">
-                            <h2>${term}</h2>
-                            <ul class="tags">
-                                ${tagArray.map((tag) => `<li>${tag.trim()}</li>`).join("")}
-                            </ul>
-                            <p>${definition}</p>
-                        </div>
-                        ${
-                          votes !== null
-                            ? `
-                        <div class="votes">
-                            <button class="vote-up" aria-label="Vote up for ${term}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="m5 12 7-7 7 7" />
-                                    <path d="M12 19V5" />
-                                </svg>
-                            </button>
-                            <div>${votes}</div>
-                            <button class="vote-down" aria-label="Vote down for ${term}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M12 5v14" />
-                                    <path d="m19 12-7 7-7-7" />
-                                </svg>
-                            </button>
-                        </div>
-                        `
-                            : ""
-                        }
-                    </div>
-                `;
-
-          // Add event listeners for voting
-          if (votes !== null) {
-            const upBtn = this.shadowRoot.querySelector(".vote-up");
-            const downBtn = this.shadowRoot.querySelector(".vote-down");
-
-            upBtn?.addEventListener("click", () => {
-              this.dispatchEvent(
-                new CustomEvent("vote", { detail: { direction: "up" } }),
-              );
-            });
-
-            downBtn?.addEventListener("click", () => {
-              this.dispatchEvent(
-                new CustomEvent("vote", { detail: { direction: "down" } }),
-              );
-            });
-          }
-        }
-      }
-
-      customElements.define("term-item", TermItem);
-
       // Supabase Configuration
       const SUPABASE_URL = "https://uahckisfpkeulrwbuyms.supabase.co";
       const SUPABASE_KEY = "sb_publishable_otX6Z4ozo93AdIhablKqlA_Ah-Ou5CM";
+      
+      let allTerms = []; // Store all terms for filtering
+      let currentSort = 'az'; // Track current sort mode
 
       // Fetch terms from Supabase
       async function fetchTerms() {
@@ -785,6 +701,7 @@
               console.log(
                 `Successfully fetched ${terms.length} terms from table: ${tableName}`,
               );
+              allTerms = terms; // Store globally
               renderTerms(terms);
               return;
             }
@@ -799,10 +716,10 @@
           console.log("Using fallback data...");
         }
       }
-
       // Render terms in the list
-      function renderTerms(terms) {
+      function renderTerms(terms, sortMode = currentSort) {
         const termsList = document.querySelector(".terms-list");
+        const template = document.getElementById("term-template");
         termsList.innerHTML = "";
 
         if (terms.length === 0) {
@@ -811,37 +728,248 @@
           return;
         }
 
-        terms.forEach((term, index) => {
-          const termItem = document.createElement("term-item");
-          termItem.style.animationDelay = `${index * 0.05}s`;
-          termItem.setAttribute("term", term.term);
-          termItem.setAttribute("definition", term.description);
-          termItem.setAttribute("tags", term.tags ? term.tags.join(",") : "");
-          termItem.setAttribute("votes", term.votes || 0);
-          if (term.totd) {
-            termItem.setAttribute("totd", "true");
-          }
+        // Create a copy to avoid mutating the original array
+        const sortedTerms = [...terms];
 
-          // Handle voting
-          termItem.addEventListener("vote", (e) => {
-            console.log(`Vote ${e.detail.direction} for term: ${term.term}`);
-            // Add actual voting logic here
+        // Sort terms based on mode
+        if (sortMode === 'az') {
+          sortedTerms.sort((a, b) => a.term.localeCompare(b.term));
+        } else if (sortMode === 'votes') {
+          sortedTerms.sort((a, b) => (b.votes || 0) - (a.votes || 0));
+        }
+
+        // Only show letter grouping for A-Z sort
+        if (sortMode === 'az') {
+          // Create placeholder headers for all letters A-Z
+          const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+          const letterMap = {};
+          
+          // Build map of which letters have terms
+          sortedTerms.forEach(term => {
+            const firstLetter = term.term[0].toUpperCase();
+            if (!letterMap[firstLetter]) {
+              letterMap[firstLetter] = [];
+            }
+            letterMap[firstLetter].push(term);
           });
 
-          termsList.appendChild(termItem);
-        });
+          // Create letter anchors and render terms in order
+          alphabet.forEach(letter => {
+            const anchor = document.createElement('span');
+            anchor.id = letter;
+            anchor.style.scrollMarginTop = '2em';
+            termsList.appendChild(anchor);
+            
+            if (letterMap[letter]) {
+              // Render terms for this letter
+              letterMap[letter].forEach((term, index) => {
+                const clone = template.content.cloneNode(true);
+                const li = clone.querySelector(".term-item");
+                const letterElement = clone.querySelector(".letter");
+                
+                // Show letter only for first term of each letter group
+                if (index === 0) {
+                  li.classList.add('show-letter');
+                  letterElement.textContent = letter;
+                }
+                
+                // Skip animation (set opacity to 1 immediately)
+                li.style.opacity = '1';
+                li.style.animation = 'none';
+                
+                // Set term data
+                clone.querySelector(".term-name").textContent = term.term;
+                clone.querySelector(".term-definition").textContent = term.description;
+                clone.querySelector(".vote-count").textContent = term.votes || 0;
+                
+                // Set TOTD attribute
+                if (term.totd) {
+                  li.setAttribute("data-totd", "true");
+                }
+                
+                // Set tags
+                const tagsList = clone.querySelector(".tags");
+                if (term.tags && term.tags.length > 0) {
+                  term.tags.forEach(tag => {
+                    const tagLi = document.createElement("li");
+                    tagLi.textContent = tag;
+                    tagsList.appendChild(tagLi);
+                  });
+                }
+                
+                // Set up vote buttons with accessible labels
+                const upBtn = clone.querySelector(".vote-up");
+                const downBtn = clone.querySelector(".vote-down");
+                upBtn.setAttribute("aria-label", `Vote up for ${term.term}`);
+                downBtn.setAttribute("aria-label", `Vote down for ${term.term}`);
+                
+                // Handle voting
+                upBtn.addEventListener("click", () => {
+                  console.log(`Vote up for term: ${term.term}`);
+                  // Add actual voting logic here
+                });
+                
+                downBtn.addEventListener("click", () => {
+                  console.log(`Vote down for term: ${term.term}`);
+                  // Add actual voting logic here
+                });
+
+                termsList.appendChild(clone);
+              });
+            }
+          });
+        } else {
+          // For votes sorting, render without letter grouping
+          sortedTerms.forEach((term) => {
+            const clone = template.content.cloneNode(true);
+            const li = clone.querySelector(".term-item");
+            const letterElement = clone.querySelector(".letter");
+            
+            // Hide letters for vote sorting
+            letterElement.style.display = 'none';
+            
+            // Skip animation (set opacity to 1 immediately)
+            li.style.opacity = '1';
+            li.style.animation = 'none';
+            
+            // Set term data
+            clone.querySelector(".term-name").textContent = term.term;
+            clone.querySelector(".term-definition").textContent = term.description;
+            clone.querySelector(".vote-count").textContent = term.votes || 0;
+            
+            // Set TOTD attribute
+            if (term.totd) {
+              li.setAttribute("data-totd", "true");
+            }
+            
+            // Set tags
+            const tagsList = clone.querySelector(".tags");
+            if (term.tags && term.tags.length > 0) {
+              term.tags.forEach(tag => {
+                const tagLi = document.createElement("li");
+                tagLi.textContent = tag;
+                tagsList.appendChild(tagLi);
+              });
+            }
+            
+            // Set up vote buttons with accessible labels
+            const upBtn = clone.querySelector(".vote-up");
+            const downBtn = clone.querySelector(".vote-down");
+            upBtn.setAttribute("aria-label", `Vote up for ${term.term}`);
+            downBtn.setAttribute("aria-label", `Vote down for ${term.term}`);
+            
+            // Handle voting
+            upBtn.addEventListener("click", () => {
+              console.log(`Vote up for term: ${term.term}`);
+              // Add actual voting logic here
+            });
+            
+            downBtn.addEventListener("click", () => {
+              console.log(`Vote down for term: ${term.term}`);
+              // Add actual voting logic here
+            });
+
+            termsList.appendChild(clone);
+          });
+        }
       }
 
       // Load terms on page load
       document.addEventListener("DOMContentLoaded", () => {
         fetchTerms();
 
-        // Dialog functionality
-        const dialog = document.getElementById("suggestDialog");
-        const suggestBtn = document.getElementById("suggestTermBtn");
-        const closeBtn = document.getElementById("closeDialog");
         const cancelBtn = document.getElementById("cancelBtn");
         const form = document.getElementById("suggestForm");
+        const searchInput = document.querySelector('.search input');
+        const sortAzBtn = document.querySelector('.sort-az-btn');
+        const sortVotesBtn = document.querySelector('.sort-votes-btn');
+        const letterNavLinks = document.querySelectorAll('.letter-nav');
+
+        // Letter navigation click handler
+        letterNavLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Switch to A-Z sort when clicking letter nav
+            currentSort = 'az';
+            sortAzBtn.classList.add('active');
+            sortVotesBtn.classList.remove('active');
+            const query = searchInput.value.toLowerCase().trim();
+            const filtered = query === '' ? allTerms : allTerms.filter(term => 
+              term.term.toLowerCase().includes(query) || 
+              term.description.toLowerCase().includes(query) ||
+              (term.tags && term.tags.some(tag => tag.toLowerCase().includes(query)))
+            );
+            renderTerms(filtered, 'az');
+            // Scroll to the letter
+            const letter = link.getAttribute('href').substring(1);
+            const anchor = document.getElementById(letter);
+            if (anchor) {
+              anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+
+        // Sort button handlers
+        sortAzBtn.addEventListener('click', () => {
+          currentSort = 'az';
+          sortAzBtn.classList.add('active');
+          sortVotesBtn.classList.remove('active');
+          const query = searchInput.value.toLowerCase().trim();
+          const filtered = query === '' ? allTerms : allTerms.filter(term => 
+            term.term.toLowerCase().includes(query) || 
+            term.description.toLowerCase().includes(query) ||
+            (term.tags && term.tags.some(tag => tag.toLowerCase().includes(query)))
+          );
+          renderTerms(filtered, currentSort);
+        });
+
+        sortVotesBtn.addEventListener('click', () => {
+          currentSort = 'votes';
+          sortVotesBtn.classList.add('active');
+          sortAzBtn.classList.remove('active');
+          const query = searchInput.value.toLowerCase().trim();
+          const filtered = query === '' ? allTerms : allTerms.filter(term => 
+            term.term.toLowerCase().includes(query) || 
+            term.description.toLowerCase().includes(query) ||
+            (term.tags && term.tags.some(tag => tag.toLowerCase().includes(query)))
+          );
+          renderTerms(filtered, 'votes');
+        });
+
+        // Set A-Z as default active
+        sortAzBtn.classList.add('active');
+
+        // Search functionality
+
+          
+        // Escape key to blur search input
+        searchInput.addEventListener("keydown", (e) => {
+          if (e.key === 'Escape' || e.key === 'Enter') {
+            searchInput.blur();
+          }
+        });
+
+        // Open dialog
+        const suggestBtn = document.getElementById("suggestTermBtn");
+        const dialog = document.getElementById("suggestDialog");
+        const closeBtn = document.getElementById("closeDialog");
+        // Search functionality
+        searchInput.addEventListener("input", (e) => {
+          const query = e.target.value.toLowerCase().trim();
+          
+          if (query === '') {
+            // Show all terms
+            renderTerms(allTerms, currentSort);
+          } else {
+            // Filter terms
+            const filtered = allTerms.filter(term => 
+              term.term.toLowerCase().includes(query) || 
+              term.description.toLowerCase().includes(query) ||
+              (term.tags && term.tags.some(tag => tag.toLowerCase().includes(query)))
+            );
+            renderTerms(filtered, currentSort);
+          }
+        });
 
         // Open dialog
         suggestBtn.addEventListener("click", () => {
@@ -905,6 +1033,46 @@
           } catch (error) {
             console.error("Error submitting term:", error);
             alert("Failed to submit term suggestion. Please try again later.");
+          }
+        });
+
+        // Keyboard navigation for A-Z letters
+        document.addEventListener("keydown", (e) => {
+          // Ctrl+F to focus search bar
+          if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+            e.preventDefault();
+            const searchInput = document.querySelector('.search input');
+            searchInput.focus();
+            searchInput.select();
+            return;
+          }
+
+          // Only trigger if no input/textarea is focused and dialog is not open
+          if (document.activeElement.tagName === 'INPUT' || 
+              document.activeElement.tagName === 'TEXTAREA' ||
+              dialog.open) {
+            return;
+          }
+
+          const key = e.key.toUpperCase();
+          if (key >= 'A' && key <= 'Z') {
+            e.preventDefault();
+            // Switch to A-Z sort when a letter is pressed
+            currentSort = 'az';
+            sortAzBtn.classList.add('active');
+            sortVotesBtn.classList.remove('active');
+            const query = searchInput.value.toLowerCase().trim();
+            const filtered = query === '' ? allTerms : allTerms.filter(term => 
+              term.term.toLowerCase().includes(query) || 
+              term.description.toLowerCase().includes(query) ||
+              (term.tags && term.tags.some(tag => tag.toLowerCase().includes(query)))
+            );
+            renderTerms(filtered, 'az');
+            // Then scroll to the letter
+            const anchor = document.getElementById(key);
+            if (anchor) {
+              anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
           }
         });
       });
