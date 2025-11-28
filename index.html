@@ -63,13 +63,14 @@
       .totd > header {
         width: max-content;
         background-color: var(--c-prim);
-        padding: 0.1em 0.6em;
+        padding: 0.2em 0.6em;
         margin-bottom: 0.2em;
       }
 
       .totd > main {
         background-color: var(--c-prim);
-        padding: 0.2em 0.6em;
+        padding: 0.4em 1.2em;
+        position: relative;
       }
 
       .totd > main > p {
@@ -500,6 +501,31 @@
         height: 100%;
         color: var(--c-text-dark)
       }
+
+      .totd-close {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        width: 24px;
+        height: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--c-text-dark);
+      }
+
+      .totd-close svg {
+        width: 100%;
+        height: 100%;
+        color: var(--c-text-dark);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+      }
+
+      .totd-close:hover svg {
+        transform: rotate(90deg);
+      }
     </style>
   </head>
 
@@ -508,6 +534,9 @@
       <div class="totd">
         <header>term of the day</header>
         <main>
+          <button class="totd-close" aria-label="Close term of the day">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
           <h1><u>affordance</u></h1>
           <p>
             The properties of an object that suggest how it can be used, acting
@@ -1135,6 +1164,14 @@
             top: 0,
             behavior: 'smooth'
           });
+        });
+
+        // Close button functionality for Term of the Day
+        const totdCloseButton = document.querySelector('.totd-close');
+        const totdSection = document.querySelector('.totd');
+
+        totdCloseButton.addEventListener('click', () => {
+          totdSection.style.display = 'none';
         });
       });
     </script>
