@@ -903,6 +903,14 @@
             termsList.appendChild(clone);
           });
         }
+
+        // Mark the first term as Term of the Day (TOTD)
+        if (sortedTerms.length > 0) {
+          const firstTermElement = termsList.querySelector('.term-item');
+          if (firstTermElement) {
+            firstTermElement.setAttribute('data-totd', 'true');
+          }
+        }
       }
 
       // Load terms on page load
